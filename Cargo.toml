@@ -1,0 +1,31 @@
+[package]
+name = "ponos"
+version = "0.1.0"
+edition = "2024"
+authors = ["C6OI <C6OI@yandex.ru>"]
+
+[package.metadata.bootimage]
+test-timeout = 300 # (in seconds)
+test-success-exit-code = 33 # (0x10 << 1) | 1
+test-args = [
+    "-device", "isa-debug-exit,iobase=0xf4,iosize=0x04",
+    "-serial", "stdio",
+    "-display", "none"
+]
+
+[[bin]]
+name = "ponos"
+test = true
+bench = false
+
+[[test]]
+name = "should_panic"
+harness = false
+
+[dependencies]
+bootloader = "0.9.33"
+volatile = "0.2.6"
+lazy_static = { version = "1.5.0", features = ["spin_no_std"]}
+spin = "0.10.0"
+x86_64 = "0.15.4"
+uart_16550 = "0.4.0"

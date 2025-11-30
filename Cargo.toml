@@ -22,6 +22,10 @@ bench = false
 name = "should_panic"
 harness = false
 
+[[test]]
+name = "stack_overflow"
+harness = false
+
 [dependencies]
 bootloader = "0.9.33"
 volatile = "0.2.6"

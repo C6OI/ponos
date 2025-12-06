@@ -4,7 +4,7 @@
 
 use core::panic::PanicInfo;
 use lazy_static::lazy_static;
-use ponos::{exit_qemu, hlt_loop, serial_print, serial_println, QemuExitCode};
+use ponos::{QemuExitCode, exit_qemu, hlt_loop, serial_print, serial_println};
 use x86_64::structures::idt::{InterruptDescriptorTable, InterruptStackFrame};
 
 lazy_static! {
